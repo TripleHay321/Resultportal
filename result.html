@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>result</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            text-align: center;
+        }
+    </style>
+</head>
+<body id="body" class="bg-white fs">
+   <h4 class="fw-bold font-monospace text-body-secondary">2020/2021 1st semester result</h4>
+   <p id="p" class="bg-danger text-light"></p>
+   <!--  -->
+
+   <div class = "input-group input-group-mb-3">
+    <span class="input-group-text" id="inputGroup-sizing-sm">CSC 210</span>
+    <input type="number" id ='csc_210' class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">  
+
+    <span class="input-group-text" id="inputGroup-sizing-sm">CSC 211</span>
+    <input type="number" id ='csc_211' class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">  
+   </div>
+   <div class = "input-group input-group-mb-3">
+    <span class="input-group-text" id="inputGroup-sizing-sm">CSC 212</span>
+    <input type="number" id ='csc_212' class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">  
+    <span class="input-group-text" id="inputGroup-sizing-sm">CSC 213</span>
+    <input type="number" id ='csc_213' class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">  
+   </div>
+   <div class = "input-group input-group-mb-3">
+    <span class="input-group-text" id="inputGroup-sizing-sm">CSC 214</span>
+    <input type="number" id ='csc_214' class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">  
+   <button type="button" class="btn btn-secondary" id="result">Submit</button>
+
+
+   <table width="100%" class="table table-striped text-center">
+    <tr>
+        <th>Course</th>
+        <th>Score</th>
+        <th>Grade</th>
+    </tr>
+    <tr>
+        <td class="fw-bold text-black-70 text-center">CSC 210</td>
+        <td id="s1"></td>
+        <td id="g1"></td>
+    </tr>
+    <tr>
+        <td class="fw-bold text-black-70 text-center">CSC 211</td>
+        <td id="s2"></td>
+        <td id="g2"></td>
+    </tr>
+    <tr>
+        <td class="fw-bold text-black-70 text-center">CSC 212</td>
+        <td id="s3"></td>
+        <td id="g3"></td>
+    </tr>
+    <tr>
+        <td class="fw-bold text-black-70 text-center">CSC 213</td>
+        <td id="s4"></td>
+        <td id="g4"></td>
+    </tr>
+    <tr>
+        <td class="fw-bold text-black-70 text-center">CSC 214</td>
+        <td id="s5"></td>
+        <td id="g5"></td>
+    </tr>
+    <tr>
+        <td class="fw-bold text-black-70 text-center">G.P</td>
+        <td id="gp"></td>
+        <td class = "text-danger fw-bold"id="uni_status"></td>
+    </tr>
+   </table>
+</body>
+<script>
+    const a = document.querySelector("#csc_210");
+    const b = document.querySelector("#csc_211");
+    const c = document.querySelector("#csc_212");
+    const d = document.querySelector("#csc_213");
+    const e = document.querySelector("#csc_214");
+    const f = document.querySelector("#result");
+
+    const s1 = document.querySelector("#s1");
+    const s2 = document.querySelector("#s2");
+    const s3 = document.querySelector("#s3");
+    const s4 = document.querySelector("#s4");
+    const s5 = document.querySelector("#s5");
+
+    const g1 = document.querySelector("#g1");
+    const g2 = document.querySelector("#g2");
+    const g3 = document.querySelector("#g3");
+    const g4 = document.querySelector("#g4");
+    const g5 = document.querySelector("#g5");
+
+    const p = document.querySelector("#p");
+
+    const gp = document.querySelector('#gp');
+
+
+    f.addEventListener("click", ()=> {
+        s1.innerHTML = a.value;
+        s2.innerHTML = b.value;
+        s3.innerHTML = c.value;
+        s4.innerHTML = d.value;
+        s5.innerHTML = e.value;
+
+        const one = s1.innerHTML;
+        const two = s2.innerHTML;
+        const three = s3.innerHTML;
+        const four = s4.innerHTML;
+        const five = s5.innerHTML;
+
+        let grade1 = 0;
+        let grade2 = 0;
+        let grade3 = 0;
+        let grade4 = 0;
+        let grade5 = 0;
+
+        if (one >= 70 && one < 100) {
+            g1.innerHTML = "A";
+            grade1 +=5;
+        }
+        else if (one < 70 && one >= 60) {
+            g1.innerHTML = "B";
+            grade1 +=4;
+        }
+        else if (one < 60 && one >= 50) {
+            g1.innerHTML = "C";
+            grade1 +=3;
+        }
+        else if (one < 50 && one >= 45) {
+            g1.innerHTML = "D";
+            grade1 +=2;
+        }
+        else if (one < 45 && one >= 40) {
+            g1.innerHTML = "E";
+            grade1 +=1;
+        }
+        else if (one < 40 && one > 0) {
+            g1.innerHTML = "F";
+            grade1 +=0;
+        }
+        else {
+            p.innerHTML = "You've entered an invalid score or grade";
+            s1.innerHTML = "Not Uploaded";
+            g1.innerHTML = "Not uploaded";
+        }
+
+        if (two >= 70 && two < 100) {
+            g2.innerHTML = "A";
+            grade2 +=5;
+        }
+        else if (two < 70 && two >= 60) {
+            g2.innerHTML = "B";
+            grade2 +=4;
+        }
+        else if (two < 60 && two >= 50) {
+            g2.innerHTML = "C";
+            grade2 +=3;
+        }
+        else if (two < 50 && two >= 45) {
+            g2.innerHTML = "D";
+            grade2 +=2;
+        }
+        else if (two < 45 && two >= 40) {
+            g2.innerHTML = "E";
+            grade2 +=1;
+        }
+        else if (two < 40 && two > 0) {
+            g2.innerHTML = "F";
+            grade2 +=0;
+        }
+        else {
+            p.innerHTML = "You've entered an invalid score or grade";
+            s2.innerHTML = "Not Uploaded";
+            g2.innerHTML = "Not uploaded";
+        }
+
+        if (three >= 70 && three < 100) {
+            g3.innerHTML = "A";
+            grade3 += 5;
+        }
+        else if (three < 70 && three >= 60) {
+            g3.innerHTML = "B";
+            grade3 += 4;
+        }
+        else if (three < 60 && three >= 50) {
+            g3.innerHTML = "C";
+            grade3 += 3;
+        }
+        else if (three < 50 && three >= 45) {
+            g3.innerHTML = "D";
+            grade3 += 2;
+        }
+        else if (three < 45 && three >= 40) {
+            g3.innerHTML = "E";
+            grade3 += 1;
+        }
+        else if (three < 40 && three > 0) {
+            g3.innerHTML = "F";
+            grade3 += 0;
+        }
+        else {
+            p.innerHTML = "You've entered an invalid score or grade";
+            s3.innerHTML = "Not Uploaded";
+            g3.innerHTML = "Not uploaded";
+        }
+
+        if (four >= 70 && four < 100) {
+            g4.innerHTML = "A";
+            grade4 += 5;
+        }
+        else if (four < 70 && four >= 60) {
+            g4.innerHTML = "B";
+            grade4 += 4;
+        }
+        else if (four < 60 && four >= 50) {
+            g4.innerHTML = "C";
+            grade4 += 3;
+        }
+        else if (four < 50 && four >= 45) {
+            g4.innerHTML = "D";
+            grade4 += 2;
+        }
+        else if (four < 45 && four >= 40) {
+            g4.innerHTML = "E";
+            grade4 += 1;
+        }
+        else if (four < 40 && four > 0) {
+            g4.innerHTML = "F";
+            grade4 += 0;
+        }
+        else {
+            p.innerHTML = "You've entered an invalid score or grade";
+            s4.innerHTML = "Not Uploaded";
+            g4.innerHTML = "Not uploaded";
+        }
+
+        if (five >= 70 && five < 100) {
+            g5.innerHTML = "A";
+            grade5 += 5;
+        }
+        else if (five < 70 && five >= 60) {
+            g5.innerHTML = "B";
+            grade5 += 4;
+        }
+        else if (five < 60 && five >= 50) {
+            g5.innerHTML = "C";
+            grade5 += 3;
+        }
+        else if (five < 50 && five >= 45) {
+            g5.innerHTML = "D";
+            grade5 += 2;
+        }
+        else if (five < 45 && five >= 40) {
+            g5.innerHTML = "E";
+            grade5 += 1;
+        }
+        else if (five < 40 && five > 0) {
+            g5.innerHTML = "F";
+            grade5 += 0;
+        }
+        else {
+            p.innerHTML = "You've entered an invalid score or grade";
+            s5.innerHTML = "Not Uploaded";
+            g5.innerHTML = "Not uploaded";
+        }
+
+        console.log(`${grade1} ${grade2} ${grade3} ${grade4} ${grade5}`);
+        final_GRADE = ((grade1 * 3) + (grade2 * 3) + (grade3 * 2) + (grade4 * 2) +grade5) / 11;
+        let slicedgrade =final_GRADE.toFixed(2);
+        gp.innerHTML = slicedgrade;
+        if (final_GRADE < 1.5) {
+            gp.className = "text-danger fw-bold";
+            let a = document.querySelector('#uni_status');
+            a.innerHTML = "Below University Standard";
+            a.className = "bg-danger text-white fw-bold"
+        }
+
+        else {
+            gp.className = "text-success fw-bold";
+            document.querySelector('#uni_status').innerHTML = "";
+        }
+
+    });
+</script>
+</html>
